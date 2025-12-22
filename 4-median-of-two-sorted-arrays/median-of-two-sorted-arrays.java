@@ -9,28 +9,20 @@ class Solution {
         {
             if(nums1[i]<=nums2[j])
             {
-                arr[k]=nums1[i];
-                i++;
-                k++;
+                arr[k++]=nums1[i++];
             }
             else
             {
-                arr[k]=nums2[j];
-                k++;
-                j++;
+                arr[k++]=nums2[j++];
             }
         }
         while(i<n)
         {
-            arr[k]=nums1[i];
-            k++;
-            i++;
+            arr[k++]=nums1[i++];
         }
         while(j<m)
         {
-            arr[k]=nums2[j];
-            k++;
-            j++;
+            arr[k++]=nums2[j++];
         }
         int mid=(n+m)/2;
         if((n+m)%2==0)
