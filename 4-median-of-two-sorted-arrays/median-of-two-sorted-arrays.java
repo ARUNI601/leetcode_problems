@@ -4,25 +4,42 @@ class Solution {
         int m=nums2.length;
         int g=n+m;
         int arr[]=new int[g];
-        int k=0;
-        for(int i=0;i<n;i++)
+        int k=0,i=0,j=0;
+        while(i<n && j<m)
+        {
+            if(nums1[i]<=nums2[j])
+            {
+                arr[k]=nums1[i];
+                i++;
+                k++;
+            }
+            else
+            {
+                arr[k]=nums2[j];
+                k++;
+                j++;
+            }
+        }
+        while(i<n)
         {
             arr[k]=nums1[i];
             k++;
+            i++;
         }
-        for(int j=0;j<m;j++)
+        while(j<m)
         {
             arr[k]=nums2[j];
             k++;
+            j++;
         }
-        Arrays.sort(arr);
-        if(g%2==0)
+        int mid=(n+m)/2;
+        if((n+m)%2==0)
         {
-            return (float)(arr[(g/2)-1]+arr[g/2])/2;
+            return (float)(arr[mid]+arr[mid-1])/2;
         }
         else
         {
-            return arr[g/2];
+            return (float)arr[mid];
         }
     }
 }
