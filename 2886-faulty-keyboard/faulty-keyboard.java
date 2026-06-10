@@ -1,19 +1,18 @@
 class Solution {
     public String finalString(String s) {
-        StringBuilder sb = new StringBuilder();
-        int len = s.length();
-        for(int i=0;i<len;i++)
-        {
-            Character ch = s.charAt(i);
-            if(ch=='i')
-            {
-                sb.reverse();
-            }
-            else
-            {
-                sb.append(ch);
+        char[] t = new char[s.length()];
+        int sz = 0;
+        for (char c : s.toCharArray()) {
+            if (c != 'i') {
+                t[sz++] = c;
+            } else {
+                for (int i = 0, j = sz - 1; i < j; i++, j--) {
+                    char tmp = t[i];
+                    t[i] = t[j];
+                    t[j] = tmp;
+                }
             }
         }
-        return sb.toString();
+        return new String(t, 0, sz);
     }
 }
