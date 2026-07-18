@@ -8,8 +8,22 @@ class Solution {
             while (l<=r) {
                 int lv = image[i][l];
                 int rv = image[i][r];
-                image[i][l] = rv ^ 1;
-                image[i][r] = lv ^ 1;
+                if(rv==0)
+                {
+                    image[i][l]=1;
+                }
+                else
+                {
+                    image[i][l]=0;
+                }
+                if(lv==0)
+                {
+                    image[i][r]=1;
+                }
+                else
+                {
+                    image[i][r]=0;
+                }  
                 l++;
                 r--;
             }
