@@ -4,7 +4,7 @@ class Solution {
         int j = nums.length - 1;
         int k = j;
         int[] arr = new int[nums.length];
-        while (i < j) {
+        while (i<=j) {
             int iSq = nums[i] * nums[i];
             int jSq = nums[j] * nums[j];
             if (iSq>jSq) {
@@ -15,7 +15,6 @@ class Solution {
                 j--;
             }
         }
-        arr[0] = nums[i] * nums[i];
         return arr;
     }
 }
